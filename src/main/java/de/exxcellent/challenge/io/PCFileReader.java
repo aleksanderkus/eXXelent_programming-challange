@@ -3,7 +3,6 @@ package de.exxcellent.challenge.io;
 import de.exxcellent.challenge.data.PCData;
 import de.exxcellent.challenge.data.PCDataType;
 
-import java.io.IOException;
 import java.util.List;
 
 /**

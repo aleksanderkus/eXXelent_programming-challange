@@ -7,7 +7,7 @@ package de.exxcellent.challenge.data;
  *
  * @author Aleksander Kus(akus@stud.hs-heilbronn.de)
  */
-public class PCFootballData implements PCData {
+public class PCFootballTeamData implements PCData {
    // Team,Games,Wins,Losses,Draws,Goals,Goals Allowed,Points
     private String teamName;
     private int gameCount;
@@ -18,13 +18,13 @@ public class PCFootballData implements PCData {
     private int goalsAllowed;
     private int points;
 
-    public PCFootballData(String teamName, int totalGoals, int goalsAllowed) {
+    public PCFootballTeamData(String teamName, int totalGoals, int goalsAllowed) {
         this.teamName = teamName;
         this.totalGoals = totalGoals;
         this.goalsAllowed = goalsAllowed;
     }
 
-    public PCFootballData(String teamName, int gameCount, int totalWins, int totalLosses, int draws, int totalGoals, int goalsAllowed, int points) {
+    public PCFootballTeamData(String teamName, int gameCount, int totalWins, int totalLosses, int draws, int totalGoals, int goalsAllowed, int points) {
         this.teamName = teamName;
         this.gameCount = gameCount;
         this.totalWins = totalWins;

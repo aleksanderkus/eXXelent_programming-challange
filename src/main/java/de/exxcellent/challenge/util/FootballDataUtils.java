@@ -1,12 +1,12 @@
 package de.exxcellent.challenge.util;
 
 
-import de.exxcellent.challenge.data.PCFootballData;
+import de.exxcellent.challenge.data.PCFootballTeamData;
 
 import java.util.List;
 
 /**
- * utils class for working with {@link de.exxcellent.challenge.data.PCFootballData}
+ * utils class for working with {@link PCFootballTeamData}
  *
  * @author Aleksander Kus(akus@stud.hs-heilbronn.de)
  */
@@ -18,17 +18,17 @@ public class FootballDataUtils {
      * @return the team name as {@link String}
      * @throws AssertionError if the input list is empty
      */
-    public static String getTeamWithSmallestGoalsAllowedDifference(List<PCFootballData> footballDataList) {
-        PCFootballData teamWithSmallestGoalsAllowed = null;
-        for (PCFootballData data : footballDataList) {
+    public static String getTeamWithSmallestGoalsAllowedDifference(List<PCFootballTeamData> footballDataList) {
+        PCFootballTeamData teamWithSmallestGoalsAllowed = null;
+        for (PCFootballTeamData data : footballDataList) {
             if (teamWithSmallestGoalsAllowed != null) {
                 int goals1 = teamWithSmallestGoalsAllowed.getTotalGoals();
                 int goalsAllowed1 = teamWithSmallestGoalsAllowed.getGoalsAllowed();
-                int difference1 = (goalsAllowed1 - goals1);
+                int difference1 = Math.abs(goals1 - goalsAllowed1);
 
                 int goals2 = data.getTotalGoals();
                 int goalsAllowed2 = data.getGoalsAllowed();
-                int difference2 = (goalsAllowed2 - goals2);
+                int difference2 = Math.abs(goals2 - goalsAllowed2);
                 if (difference2 < difference1) {
                     teamWithSmallestGoalsAllowed = data;
                 } else if (difference1 == difference2) {
@@ -46,20 +46,20 @@ public class FootballDataUtils {
 
     /**
      * @param contentAsString the football data as array
-     * @return a new instance of {@link PCFootballData}
+     * @return a new instance of {@link PCFootballTeamData}
      * @throws NumberFormatException    if the file is wrong formatted
      * @throws IllegalArgumentException if the input array is wrong
      */
-    public static PCFootballData createFootballDataFromStringArray(String[] contentAsString) {
+    public static PCFootballTeamData createFootballDataFromStringArray(String[] contentAsString) {
         if (contentAsString.length < 3) {
             throw new IllegalArgumentException("input string array has wrong size!");
         }
-        PCFootballData footballData = null;
+        PCFootballTeamData footballData = null;
         try {
             String teamName = contentAsString[0];
-            int totalGoals = Integer.parseInt(contentAsString[6]);
-            int totalGoalsAllowed = Integer.parseInt(contentAsString[7]);
-            footballData = new PCFootballData(teamName, totalGoals, totalGoalsAllowed);
+            int totalGoals = Integer.parseInt(contentAsString[5]);
+            int totalGoalsAllowed = Integer.parseInt(contentAsString[6]);
+            footballData = new PCFootballTeamData(teamName, totalGoals, totalGoalsAllowed);
         } catch (NumberFormatException e) {
             System.err.println("wrong format of file for weather data");
             e.printStackTrace();

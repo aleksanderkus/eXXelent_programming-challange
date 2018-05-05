@@ -1,17 +1,17 @@
 package de.exxcellent.challenge.data;
 
 /**
- * data holder class for weater data
+ * data holder class for weather data
  *
  * @author Aleksander Kus(akus@stud.hs-heilbronn.de)
  */
-public class PCWeatherData implements PCData {
+public class PCWeatherDayData implements PCData {
 
     private int dayOfMonth;
     private int maxTemp;
     private int minTemp;
 
-    public PCWeatherData(int dayOfMonth, int maxTemp, int minTemp) {
+    public PCWeatherDayData(int dayOfMonth, int maxTemp, int minTemp) {
         this.dayOfMonth = dayOfMonth;
         this.maxTemp = maxTemp;
         this.minTemp = minTemp;
