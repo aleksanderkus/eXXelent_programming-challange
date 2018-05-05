@@ -1,14 +1,12 @@
 package de.exxcellent.challenge.data;
 
 
-
 /**
  * data holder class for football data
  *
  * @author Aleksander Kus(akus@stud.hs-heilbronn.de)
  */
 public class PCFootballTeamData implements PCData {
-   // Team,Games,Wins,Losses,Draws,Goals,Goals Allowed,Points
     private String teamName;
     private int gameCount;
     private int totalWins;

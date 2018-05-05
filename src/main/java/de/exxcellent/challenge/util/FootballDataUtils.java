@@ -18,7 +18,7 @@ public class FootballDataUtils {
      * @return the team name as {@link String}
      * @throws AssertionError if the input list is empty
      */
-    public static String getTeamWithSmallestGoalsAllowedDifference(List<PCFootballTeamData> footballDataList) {
+    public static String getTeamWithSmallestGoalSpread(List<PCFootballTeamData> footballDataList) {
         PCFootballTeamData teamWithSmallestGoalsAllowed = null;
         for (PCFootballTeamData data : footballDataList) {
             if (teamWithSmallestGoalsAllowed != null) {
@@ -33,7 +33,7 @@ public class FootballDataUtils {
                     teamWithSmallestGoalsAllowed = data;
                 } else if (difference1 == difference2) {
                     // for the first time if there are two days with the same spread only notify via console
-                    System.out.println("Team " + teamWithSmallestGoalsAllowed.getTeamName() + " and team " + data.getTeamName()+ " have the same goal / goals allowed difference!");
+                    System.out.println("Team " + teamWithSmallestGoalsAllowed.getTeamName() + " and team " + data.getTeamName() + " have the same goal / goals allowed difference!");
                 }
             } else {
                 teamWithSmallestGoalsAllowed = data;

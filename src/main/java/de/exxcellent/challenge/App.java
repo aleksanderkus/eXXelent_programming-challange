@@ -34,10 +34,10 @@ public final class App {
         List<PCFootballTeamData> footballData = (ArrayList<PCFootballTeamData>) (ArrayList<?>) fileReader.parseFile(FOOTBALL_CSV_FILE, PCDataType.Football);
 
 
-        String dayWithSmallestTempSpread = "Someday";     // Your day analysis function call …
-        String teamWithSmallesGoalSpread = "A good team"; // Your goal analysis function call …
+        String dayWithSmallestTempSpread = String.valueOf(WeatherDataUtils.getDayWithSmallestTemperatureSpread(weatherData));     // Your day analysis function call …
+        String teamWithSmallesGoalSpread = FootballDataUtils.getTeamWithSmallestGoalSpread(footballData); // Your goal analysis function call …
 
-        System.out.printf("Day with smallest temperature spread : %s%n", WeatherDataUtils.getDayWithSmallestTemperatureSpread(weatherData));
-        System.out.printf("Team with smallest goal spread       : %s%n", FootballDataUtils.getTeamWithSmallestGoalsAllowedDifference(footballData));
+        System.out.printf("Day with smallest temperature spread : %s%n", dayWithSmallestTempSpread);
+        System.out.printf("Team with smallest goal spread       : %s%n", teamWithSmallesGoalSpread);
     }
 }
