@@ -4,6 +4,7 @@ import de.exxcellent.challenge.data.PCDataType;
 import de.exxcellent.challenge.data.PCFootballTeamData;
 import de.exxcellent.challenge.data.PCWeatherDayData;
 import de.exxcellent.challenge.io.PCCsvFileReader;
+import de.exxcellent.challenge.io.PCFileReader;
 import de.exxcellent.challenge.util.FootballDataUtils;
 import de.exxcellent.challenge.util.WeatherDataUtils;
 
@@ -27,8 +28,10 @@ public final class App {
     @SuppressWarnings("unchecked")
     public static void main(String... args) {
 
-        List<PCWeatherDayData> weatherData = (ArrayList<PCWeatherDayData>) (ArrayList<?>) new PCCsvFileReader().parseFile(WEATHER_CSV_FILE, PCDataType.Weather);
-        List<PCFootballTeamData> footballData = (ArrayList<PCFootballTeamData>) (ArrayList<?>) new PCCsvFileReader().parseFile(FOOTBALL_CSV_FILE, PCDataType.Football);
+
+        PCFileReader fileReader = new PCCsvFileReader();
+        List<PCWeatherDayData> weatherData = (ArrayList<PCWeatherDayData>) (ArrayList<?>) fileReader.parseFile(WEATHER_CSV_FILE, PCDataType.Weather);
+        List<PCFootballTeamData> footballData = (ArrayList<PCFootballTeamData>) (ArrayList<?>) fileReader.parseFile(FOOTBALL_CSV_FILE, PCDataType.Football);
 
 
         String dayWithSmallestTempSpread = "Someday";     // Your day analysis function call …
