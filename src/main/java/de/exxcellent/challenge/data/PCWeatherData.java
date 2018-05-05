@@ -5,13 +5,13 @@ package de.exxcellent.challenge.data;
  *
  * @author Aleksander Kus(akus@stud.hs-heilbronn.de)
  */
-public class PCCsvData implements PCData {
+public class PCWeatherData implements PCData {
 
     private int dayOfMonth;
     private int maxTemp;
     private int minTemp;
 
-    public PCCsvData(int dayOfMonth, int maxTemp, int minTemp) {
+    public PCWeatherData(int dayOfMonth, int maxTemp, int minTemp) {
         this.dayOfMonth = dayOfMonth;
         this.maxTemp = maxTemp;
         this.minTemp = minTemp;

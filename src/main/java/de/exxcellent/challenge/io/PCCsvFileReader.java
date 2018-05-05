@@ -1,14 +1,10 @@
 package de.exxcellent.challenge.io;
 
-import com.sun.deploy.util.StringUtils;
 import de.exxcellent.challenge.data.PCData;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import de.exxcellent.challenge.data.PCWeatherData;
 
 /**
- * file reader that parses a csv file into {@link de.exxcellent.challenge.data.PCCsvData}
+ * file reader that parses a csv file into {@link PCWeatherData}
  *
  * @author Aleksander Kus(akus@stud.hs-heilbronn.de)
  */
