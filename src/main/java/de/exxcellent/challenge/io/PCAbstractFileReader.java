@@ -18,7 +18,7 @@ public abstract class PCAbstractFileReader implements PCFileReader {
      * @param fileName the file name of the wanted file may not be <code>null</code> the file should be readable and UTF-8
      * @return the file content as {@link String}
      */
-    private String readFile(String fileName) {
+    protected String readFile(String fileName) {
         BufferedReader bufferedReader = null;
         StringBuilder stringBuilder = new StringBuilder();
 
