@@ -11,12 +11,11 @@ import java.io.IOException;
  *
  * @author Aleksander Kus(akus@stud.hs-heilbronn.de)
  */
-public class PCCsvFileReader implements PCFileReader {
+public class PCCsvFileReader extends PCAbstractFileReader {
 
 
     @Override
     public PCData parseFile(String fileName) {
-
         return null;
     }
 
