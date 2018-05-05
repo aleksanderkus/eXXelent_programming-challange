@@ -20,10 +20,23 @@ public class PCCsvFileReader extends PCAbstractFileReader {
 
 
         for (String line : lines){
-
+            String[] weaterdata = line.split(",");
+            try {
+                int dayOfMonth = Integer.parseInt(weaterdata[0]);
+                int maxTemp = Integer.parseInt(weaterdata[1]);
+                int minTemt = Integer.parseInt(weaterdata[2]);
+            }catch (NumberFormatException e){
+                System.err.println("wrong formatted csv file from type: ");
+                e.fillInStackTrace();
+            }
         }
         return null;
     }
 
+
+
+    enum Type{
+        Weater, Football
+    }
 
 }
