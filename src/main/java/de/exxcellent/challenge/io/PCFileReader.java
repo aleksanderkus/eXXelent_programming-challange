@@ -12,6 +12,6 @@ import java.io.IOException;
 public interface PCFileReader {
 
 
-    PCData readFile(String fileName) throws IOException;
+    PCData parseFile(String fileName) throws IOException;
 
 }
