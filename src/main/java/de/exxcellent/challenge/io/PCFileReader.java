@@ -4,6 +4,7 @@ import de.exxcellent.challenge.data.PCData;
 import de.exxcellent.challenge.data.PCDataType;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * interface for reading files
@@ -16,10 +17,7 @@ public interface PCFileReader {
      * @param fileName the file name of the wanted file to be parsed, must be readable and UTF-8
      * @return the data holder class that implements {@link PCData}
      */
-    PCData parseFile(String fileName, PCDataType type) throws IOException;
-
-
-
+    List<PCData> parseFile(String fileName, PCDataType type) throws IOException;
 
 
 }
