@@ -4,6 +4,11 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * file reader that provide a function for reading file contents
+ *
+ * @author Aleksander Kus(akus@stud.hs-heilbronn.de)
+ */
 public abstract class PCAbstractFileReader implements PCFileReader {
 
 
