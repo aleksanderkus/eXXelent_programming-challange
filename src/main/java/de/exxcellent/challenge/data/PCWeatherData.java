@@ -1,7 +1,7 @@
 package de.exxcellent.challenge.data;
 
 /**
- * data holder class for csv data
+ * data holder class for weater data
  *
  * @author Aleksander Kus(akus@stud.hs-heilbronn.de)
  */
