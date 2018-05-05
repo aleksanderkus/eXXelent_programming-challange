@@ -4,6 +4,7 @@ package de.exxcellent.challenge.io;
 import de.exxcellent.challenge.data.PCData;
 import de.exxcellent.challenge.data.PCDataType;
 import de.exxcellent.challenge.data.PCWeatherData;
+import de.exxcellent.challenge.util.WeatherDataUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +29,7 @@ public class PCCsvFileReader extends PCAbstractFileReader {
             case Weather:
                 for (String line : lines) {
                     String[] weatherData = line.split(",");
-                    pcDataList.add(PCWeatherData.createFromString(weatherData));
+                    pcDataList.add(WeatherDataUtils.createWeatherDataFromStringArray(weatherData));
                 }
                 break;
             case Football:

@@ -4,6 +4,7 @@ import de.exxcellent.challenge.data.PCData;
 import de.exxcellent.challenge.data.PCDataType;
 import de.exxcellent.challenge.data.PCWeatherData;
 import de.exxcellent.challenge.io.PCCsvFileReader;
+import de.exxcellent.challenge.util.WeatherDataUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,9 +23,9 @@ public final class App {
 
 
         List<PCWeatherData> data = (ArrayList<PCWeatherData>) (ArrayList<?>) new PCCsvFileReader().parseFile("C:\\Users\\Aleks\\Desktop\\Bewerbung\\eXXelent Solutions\\programming-challenge\\src\\main\\resources\\de\\exxcellent\\challenge\\weather.csv", PCDataType.Weather);
-        for (PCWeatherData d : data) {
-            System.out.println("d: " + d.getDayOfMonth() + ", max: " + d.getMaxTemp() + ", min: " + d.getMinTemp());
-        }
+
+        System.out.println(WeatherDataUtils.getDayWithSmallestTemperatureSpread(data));
+
         String dayWithSmallestTempSpread = "Someday";     // Your day analysis function call …
         String teamWithSmallesGoalSpread = "A good team"; // Your goal analysis function call …
 
