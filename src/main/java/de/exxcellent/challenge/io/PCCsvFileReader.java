@@ -20,31 +20,5 @@ public class PCCsvFileReader implements PCFileReader {
         return null;
     }
 
-    /***/
-    private String readFile(String fileName) {
-        BufferedReader bufferedReader = null;
-        StringBuilder stringBuilder = new StringBuilder();
 
-        try {
-            bufferedReader = new BufferedReader(new FileReader(fileName));
-            String line;
-
-            while ((line = bufferedReader.readLine()) != null) {
-                stringBuilder.append(line);
-                stringBuilder.append("\n");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (bufferedReader != null) {
-                try {
-                    bufferedReader.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        return stringBuilder.toString();
-    }
 }
