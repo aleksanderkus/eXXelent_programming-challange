@@ -20,37 +20,22 @@ public class PCCsvFileReader extends PCAbstractFileReader {
     public List<PCData> parseFile(String fileName, PCDataType type) {
         String fileContent = readFile(fileName);
         // deleting first row
-        String[] lines = new String[fileContent.length()];
-        System.arraycopy(fileContent.split("\n"), 1, lines, 0, lines.length);
+        String[] rawLines = fileContent.split("\n");
+        String[] lines = new String[rawLines.length - 1];
+        System.arraycopy(rawLines, 1, lines, 0, lines.length);
         List<PCData> pcDataList = new ArrayList<>();
         switch (type) {
             case Weather:
-                for (String line : lines){
-                    pcDataList.add(PCWeatherData.createFromString(line));
+                for (String line : lines) {
+                    String[] weatherData = line.split(",");
+                    pcDataList.add(PCWeatherData.createFromString(weatherData));
                 }
                 break;
             case Football:
             default:
                 throw new IllegalArgumentException("unknown data type: " + type);
         }
-
-        for (String line : lines) {
-            String[] weaterdata = line.split(",");
-            try {
-                int dayOfMonth = Integer.parseInt(weaterdata[0]);
-                int maxTemp = Integer.parseInt(weaterdata[1]);
-                int minTemt = Integer.parseInt(weaterdata[2]);
-            } catch (NumberFormatException e) {
-                System.err.println("wrong formatted csv file from type: ");
-                e.fillInStackTrace();
-            }
-        }
         return pcDataList;
-    }
-
-
-    enum Type {
-        Weater, Football
     }
 
 }

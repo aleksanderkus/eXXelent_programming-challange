@@ -1,5 +1,13 @@
 package de.exxcellent.challenge;
 
+import de.exxcellent.challenge.data.PCData;
+import de.exxcellent.challenge.data.PCDataType;
+import de.exxcellent.challenge.data.PCWeatherData;
+import de.exxcellent.challenge.io.PCCsvFileReader;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * The entry class for your solution. This class is only aimed as starting point and not intended as baseline for your software
  * design. Read: create your own classes and packages as appropriate.
@@ -12,6 +20,11 @@ public final class App {
 
         // Your preparation code …
 
+
+        List<PCWeatherData> data = (ArrayList<PCWeatherData>) (ArrayList<?>) new PCCsvFileReader().parseFile("C:\\Users\\Aleks\\Desktop\\Bewerbung\\eXXelent Solutions\\programming-challenge\\src\\main\\resources\\de\\exxcellent\\challenge\\weather.csv", PCDataType.Weather);
+        for (PCWeatherData d : data) {
+            System.out.println("d: " + d.getDayOfMonth() + ", max: " + d.getMaxTemp() + ", min: " + d.getMinTemp());
+        }
         String dayWithSmallestTempSpread = "Someday";     // Your day analysis function call …
         String teamWithSmallesGoalSpread = "A good team"; // Your goal analysis function call …
 
