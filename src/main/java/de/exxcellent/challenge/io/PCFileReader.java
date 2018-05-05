@@ -11,7 +11,10 @@ import java.io.IOException;
  */
 public interface PCFileReader {
 
-
+    /**
+     * @param fileName the file name of the wanted file to be parsed, must be readable and UTF-8
+     * @return the data holder class that implements {@link PCData}
+     */
     PCData parseFile(String fileName) throws IOException;
 
 }
