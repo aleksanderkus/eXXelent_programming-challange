@@ -33,6 +33,7 @@ public class PCCsvFileReader extends PCAbstractFileReader {
                 }
                 break;
             case Football:
+
             default:
                 throw new IllegalArgumentException("unknown data type: " + type);
         }
