@@ -17,6 +17,20 @@ public class PCWeatherData implements PCData {
         this.minTemp = minTemp;
     }
 
+    public static PCWeatherData createFromString(String[] contentAsString) {
+        PCWeatherData weatherData = null;
+        try {
+            int dayOfMonth = Integer.parseInt(contentAsString[0]);
+            int minTemp = Integer.parseInt(contentAsString[1]);
+            int maxTemp = Integer.parseInt(contentAsString[2]);
+            weatherData = new PCWeatherData(dayOfMonth, maxTemp, minTemp);
+        } catch (NumberFormatException e) {
+            System.err.println("wrong format of file for weather data");
+            e.printStackTrace();
+        }
+        return weatherData;
+    }
+
 
     public int getDayOfMonth() {
         return dayOfMonth;

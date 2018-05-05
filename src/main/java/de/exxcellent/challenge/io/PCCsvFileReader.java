@@ -5,6 +5,7 @@ import de.exxcellent.challenge.data.PCData;
 import de.exxcellent.challenge.data.PCDataType;
 import de.exxcellent.challenge.data.PCWeatherData;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,12 +22,14 @@ public class PCCsvFileReader extends PCAbstractFileReader {
         // deleting first row
         String[] lines = new String[fileContent.length()];
         System.arraycopy(fileContent.split("\n"), 1, lines, 0, lines.length);
-
+        List<PCData> pcDataList = new ArrayList<>();
         switch (type) {
             case Weather:
-                return null;
+                for (String line : lines){
+                    pcDataList.add(PCWeatherData.createFromString(line));
+                }
+                break;
             case Football:
-                return null;
             default:
                 throw new IllegalArgumentException("unknown data type: " + type);
         }
@@ -42,7 +45,7 @@ public class PCCsvFileReader extends PCAbstractFileReader {
                 e.fillInStackTrace();
             }
         }
-        return null;
+        return pcDataList;
     }
 
 
