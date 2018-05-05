@@ -4,9 +4,18 @@ import de.exxcellent.challenge.data.PCWeatherData;
 
 import java.util.List;
 
+/**
+ * utils class for working with {@link PCWeatherData}
+ *
+ * @author Aleksander Kus(akus@stud.hs-heilbronn.de)
+ */
 public class WeatherDataUtils {
 
-
+    /**
+     * @param weatherDataList the list with all days that should be tested
+     * @return the day as <code>int</code>
+     * @throws AssertionError if the input list is empty
+     */
     public static int getDayWithSmallestTemperatureSpread(List<PCWeatherData> weatherDataList) {
         PCWeatherData dayWithSmallestTemperatureSpread = null;
         for (PCWeatherData data : weatherDataList) {
@@ -32,7 +41,16 @@ public class WeatherDataUtils {
     }
 
 
+    /**
+     * @param contentAsString the weather information as array
+     * @return a new instance of {@link PCWeatherData}
+     * @throws NumberFormatException    if the file is wrong formatted
+     * @throws IllegalArgumentException if the input array is wrong
+     */
     public static PCWeatherData createWeatherDataFromStringArray(String[] contentAsString) {
+        if (contentAsString.length < 3) {
+            throw new IllegalArgumentException("input string array has wrong size!");
+        }
         PCWeatherData weatherData = null;
         try {
             int dayOfMonth = Integer.parseInt(contentAsString[0]);
