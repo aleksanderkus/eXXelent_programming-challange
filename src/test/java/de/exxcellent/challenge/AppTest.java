@@ -96,4 +96,17 @@ public class AppTest {
         PCFootballTeamData dayData = FootballDataUtils.createFootballDataFromStringArray(new String[]{String.valueOf(1), "FC Bayern München"});
     }
 
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testGetDayWithSmallestTemperatureSpreadWithNullList(){
+
+        WeatherDataUtils.getDayWithSmallestTemperatureSpread((ArrayList<PCWeatherDayData>) (ArrayList<?>)pcWeatherData);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testGetTeamWithSmallestGoalSpreadWithNullList(){
+
+        FootballDataUtils.getTeamWithSmallestGoalSpread((ArrayList<PCFootballTeamData>) (ArrayList<?>)pcFootballData);
+    }
+
 }
