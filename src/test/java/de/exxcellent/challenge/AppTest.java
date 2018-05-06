@@ -105,7 +105,6 @@ public class AppTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testGetTeamWithSmallestGoalSpreadWithNullList(){
-
         FootballDataUtils.getTeamWithSmallestGoalSpread((ArrayList<PCFootballTeamData>) (ArrayList<?>)pcFootballData);
     }
 

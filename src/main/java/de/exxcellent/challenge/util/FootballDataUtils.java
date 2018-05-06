@@ -19,6 +19,9 @@ public class FootballDataUtils {
      * @throws AssertionError if the input list is empty
      */
     public static String getTeamWithSmallestGoalSpread(List<PCFootballTeamData> footballDataList) {
+        if (footballDataList == null || footballDataList.isEmpty()) {
+            throw new IllegalArgumentException("illegal football data list " + (footballDataList == null ? "(NULL)" : "(EMPTY)"));
+        }
         PCFootballTeamData teamWithSmallestGoalsAllowed = null;
         for (PCFootballTeamData data : footballDataList) {
             if (teamWithSmallestGoalsAllowed != null) {
