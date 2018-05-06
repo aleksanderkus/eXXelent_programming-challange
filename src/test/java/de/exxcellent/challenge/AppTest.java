@@ -27,7 +27,7 @@ public class AppTest {
     private PCFileReader pcFileReader = null;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         pcFileReader = new PCCsvFileReader();
     }
 
@@ -46,7 +46,7 @@ public class AppTest {
     }
 
 
-    @Test(expected = NumberFormatException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void checkSettingWrongDataTypeByFootball(){
         pcWeatherData = pcFileReader.parseFile(App.FOOTBALL_CSV_FILE, PCDataType.Weather);
     }

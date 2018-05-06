@@ -3,6 +3,7 @@ package de.exxcellent.challenge.io;
 
 import de.exxcellent.challenge.data.PCData;
 import de.exxcellent.challenge.data.PCDataType;
+import de.exxcellent.challenge.data.PCFootballTeamData;
 import de.exxcellent.challenge.data.PCWeatherDayData;
 import de.exxcellent.challenge.util.FootballDataUtils;
 import de.exxcellent.challenge.util.WeatherDataUtils;
@@ -38,11 +39,21 @@ public class PCCsvFileReader extends PCAbstractFileReader {
                     String[] weatherData = line.split(VALUE_SEPARATOR);
                     pcDataList.add(WeatherDataUtils.createWeatherDataFromStringArray(weatherData));
                 }
+                for (PCData data : pcDataList){
+                    if (!(data instanceof PCWeatherDayData)){
+                        throw new IllegalArgumentException("wrong type for csv file: " +  fileName);
+                    }
+                }
                 break;
             case Football:
                 for (String line : lines) {
                     String[] footballData = line.split(VALUE_SEPARATOR);
                     pcDataList.add(FootballDataUtils.createFootballDataFromStringArray(footballData));
+                }
+                for (PCData data : pcDataList){
+                    if (!(data instanceof PCFootballTeamData)){
+                        throw new IllegalArgumentException("wrong type for csv file: " +  fileName);
+                    }
                 }
                 break;
             default:
