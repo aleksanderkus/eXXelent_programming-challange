@@ -63,6 +63,7 @@ public class WeatherDataUtils {
             weatherData = new PCWeatherDayData(dayOfMonth, maxTemp, minTemp);
         } catch (NumberFormatException e) {
             System.err.println("wrong format of file for weather data");
+            e.printStackTrace();
         }
         return weatherData;
     }

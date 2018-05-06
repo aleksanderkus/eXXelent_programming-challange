@@ -65,6 +65,7 @@ public class FootballDataUtils {
             footballData = new PCFootballTeamData(teamName, totalGoals, totalGoalsAllowed);
         } catch (NumberFormatException e) {
             System.err.println("wrong format of file for weather data");
+            e.printStackTrace();
         }
         return footballData;
     }
