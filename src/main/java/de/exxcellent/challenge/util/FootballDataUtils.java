@@ -51,7 +51,7 @@ public class FootballDataUtils {
      * @throws IllegalArgumentException if the input array is wrong
      */
     public static PCFootballTeamData createFootballDataFromStringArray(String[] contentAsString) {
-        if (contentAsString.length < 3) {
+        if (contentAsString.length < 7) {
             throw new IllegalArgumentException("input string array has wrong size!");
         }
         PCFootballTeamData footballData = null;
