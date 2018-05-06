@@ -27,6 +27,12 @@ public class PCCsvFileReader extends PCAbstractFileReader {
      */
     @Override
     public List<PCData> parseFile(String fileName, PCDataType type) {
+        if (fileName == null || fileName.isEmpty()){
+            throw new IllegalArgumentException("fileName must be valid!");
+        }
+        if (type == null){
+            throw new IllegalArgumentException("type cannot be null!");
+        }
         String fileContent = readFile(fileName);
         // deleting first row
         String[] rawLines = fileContent.split(LINE_SEPARATOR);
