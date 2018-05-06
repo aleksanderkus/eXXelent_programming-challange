@@ -33,6 +33,11 @@ public class AppTest {
     }
 
 
+    @Test(expected = NullPointerException.class)
+    public void checkParsingFileWithNullType(){
+        pcFileReader.parseFile(App.WEATHER_CSV_FILE, null);
+    }
+
     @Test
     public void checkWeatherData() {
         pcWeatherData = pcFileReader.parseFile(App.WEATHER_CSV_FILE, PCDataType.Weather);
